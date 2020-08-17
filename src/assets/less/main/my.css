@@ -1,0 +1,169 @@
+.my {
+  height: 100%;
+  background-color: #fff;
+}
+.my /deep/ .setpopuplayer .backimg {
+  position: relative;
+}
+.my /deep/ .setpopuplayer .backimg .van-cell__value {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.my /deep/ .setpopuplayer .backimg .van-cell__value .van-uploader {
+  width: 100%;
+  height: 100%;
+}
+.my /deep/ .setpopuplayer .backimg .van-cell__value .van-uploader .van-uploader__wrapper {
+  height: 100%;
+}
+.my /deep/ .setpopuplayer .backimg .van-cell__value .van-uploader .van-uploader__wrapper .van-uploader__upload {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+.my /deep/ .head .van-nav-bar {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.my /deep/ .head .van-nav-bar .van-nav-bar__title {
+  font-size: 18px;
+}
+.my /deep/ .head .van-nav-bar__right {
+  font-size: 18px;
+  color: #5e5e5e;
+}
+.my .information {
+  -moz-background-size: cover;
+       background-size: cover;
+  padding: 46px 0 0;
+}
+.my .information /deep/ .information-center {
+  padding: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+     -moz-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 100px;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.my .information /deep/ .information-center .info-name {
+  width: 70%;
+}
+.my .information /deep/ .information-center .info-name h1 {
+  font-size: 30px;
+  margin: 0;
+  margin-bottom: 20px;
+  color: #2c2c2c;
+}
+.my .information /deep/ .information-center .info-name p {
+  margin: 0;
+  color: #2c2c2c;
+}
+.my .information /deep/ .information-center .info-name p:last-child {
+  margin: 0;
+}
+.my .information /deep/ .information-center .info-name p:last-child .van-notice-bar {
+  background: none;
+  padding: 0;
+}
+.my .information /deep/ .information-center .info-headportrait {
+  width: 80px;
+  height: 80px;
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
+  -moz-background-size: cover;
+       background-size: cover;
+}
+.my .activity {
+  padding: 20px;
+}
+.my .activity .activity-center {
+  height: 150px;
+  padding: 30px 0 0 20px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: hidden;
+  background-color: #fff;
+  -webkit-box-shadow: 1px 1px 15px rgba(185, 147, 147, 0.2);
+     -moz-box-shadow: 1px 1px 15px rgba(185, 147, 147, 0.2);
+          box-shadow: 1px 1px 15px rgba(185, 147, 147, 0.2);
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
+  position: relative;
+}
+.my .activity .activity-center .activity-left p {
+  margin: 0;
+  margin-bottom: 5px;
+  color: #6c6c6c;
+}
+.my .activity .activity-center .activity-left p:nth-of-type(2) span {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
+  margin-right: 5px;
+  background-color: #5db5ad;
+}
+.my .activity .activity-center .activity-left p:nth-of-type(2) span:last-child {
+  background-color: #c2e3e0;
+}
+.my .activity .activity-center .activity-left div {
+  margin-bottom: 5px;
+}
+.my .activity .activity-center .activity-left div span:nth-of-type(1) {
+  vertical-align: super;
+}
+.my .activity .activity-center .activity-left div span:nth-of-type(2) {
+  font-size: 25px;
+  color: #69bab2;
+  font-weight: bold;
+}
+.my .activity .activity-center .activity-left div span:nth-of-type(3) {
+  color: #c2e3e0;
+  margin-left: 2px;
+}
+.my .activity .activity-center .activity-right {
+  width: 100px;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.my .activity .activity-center .activity-right img {
+  width: 100%;
+  -webkit-transform: scale(1.7);
+     -moz-transform: scale(1.7);
+      -ms-transform: scale(1.7);
+       -o-transform: scale(1.7);
+          transform: scale(1.7);
+  position: absolute;
+  right: -30px;
+  bottom: 15px;
+}
+.my /deep/ .optionsbar .optionsbar-center .van-cell__title span {
+  vertical-align: middle;
+  color: #6c6c6c;
+}
+.my /deep/ .optionsbar .optionsbar-center .van-icon {
+  font-size: 20px;
+  margin-right: 10px;
+  color: #6c6c6c;
+}
+.my /deep/ .optionsbar .optionsbar-center .van-cell__right-icon {
+  margin: 0;
+}
+/*# sourceMappingURL=./my.css.map */

@@ -1,0 +1,169 @@
+.my {
+  height: 100%;
+  background-color: #fff;
+  /deep/.setpopuplayer {
+    .backimg {
+      position: relative;
+      .van-cell__value {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        .van-uploader {
+          width: 100%;
+          height: 100%;
+          .van-uploader__wrapper {
+            height: 100%;
+
+            .van-uploader__upload {
+              width: 100%;
+              height: 100%;
+
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  /deep/ .head {
+    .van-nav-bar {
+      background-color: rgba(255, 255, 255, 0.3);
+
+      .van-nav-bar__title {
+        font-size: 18px;
+      }
+    }
+
+    .van-nav-bar__right {
+      font-size: 18px;
+      color: #5e5e5e;
+    }
+  }
+  .information {
+    background-size: cover;
+    padding: 46px 0 0;
+
+    /deep/.information-center {
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      // border-radius: 10px;
+      height: 100px;
+      background-color: rgba(255, 255, 255, 0.3);
+
+      .info-name {
+        width: 70%;
+        h1 {
+          font-size: 30px;
+          margin: 0;
+          margin-bottom: 20px;
+          color: #2c2c2c;
+        }
+        p {
+          margin: 0;
+          color: #2c2c2c;
+          &:last-child {
+            margin: 0;
+            .van-notice-bar {
+              background: none;
+              padding: 0;
+            }
+          }
+        }
+      }
+      .info-headportrait {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background-size: cover;
+      }
+    }
+  }
+  .activity {
+    padding: 20px;
+    .activity-center {
+      height: 150px;
+      padding: 30px 0 0 20px;
+      box-sizing: border-box;
+      overflow: hidden;
+      background-color: #fff;
+      box-shadow: 1px 1px 15px rgba(185, 147, 147, 0.2);
+      border-radius: 10px;
+      position: relative;
+      .activity-left {
+        p {
+          margin: 0;
+          margin-bottom: 5px;
+          color: #6c6c6c;
+          &:nth-of-type(2) {
+            span {
+              display: inline-block;
+              width: 5px;
+              height: 5px;
+              border-radius: 50%;
+              margin-right: 5px;
+              background-color: #5db5ad;
+              &:last-child {
+                background-color: #c2e3e0;
+              }
+            }
+          }
+        }
+        div {
+          margin-bottom: 5px;
+          span {
+            &:nth-of-type(1) {
+              vertical-align: super;
+            }
+            &:nth-of-type(2) {
+              font-size: 25px;
+              color: #69bab2;
+              font-weight: bold;
+            }
+            &:nth-of-type(3) {
+              color: #c2e3e0;
+              margin-left: 2px;
+            }
+          }
+        }
+      }
+      .activity-right {
+        width: 100px;
+        height: 100%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        // background-color: #83cbc5;
+        img {
+          width: 100%;
+          transform: scale(1.7);
+          position: absolute;
+          right: -30px;
+          bottom: 15px;
+        }
+      }
+    }
+  }
+
+  /deep/ .optionsbar {
+    .optionsbar-center {
+      .van-cell__title {
+        span {
+          vertical-align: middle;
+          color: #6c6c6c;
+        }
+      }
+      .van-icon {
+        font-size: 20px;
+        margin-right: 10px;
+        color: #6c6c6c;
+      }
+      .van-cell__right-icon {
+        margin: 0;
+      }
+    }
+  }
+}

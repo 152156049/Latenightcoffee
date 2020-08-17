@@ -1,0 +1,19 @@
+.newaddress /deep/ .head .van-nav-bar .van-nav-bar__title {
+  font-size: 18px;
+}
+.newaddress /deep/ .head .van-nav-bar__right {
+  font-size: 18px;
+  color: #5e5e5e;
+}
+.newaddress /deep/ .addresser-center .van-switch--on {
+  background-color: #b1dcd8;
+}
+.newaddress /deep/ .addresser-center .van-button--danger {
+  background-color: #7fc6bf;
+  border: 1px solid #7fc6bf;
+  color: #fff;
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
+}
+/*# sourceMappingURL=./newaddress.css.map */

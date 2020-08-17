@@ -1,0 +1,35 @@
+.securitycenter {
+  padding-top: 46px;
+}
+.securitycenter /deep/ .changepassword h2 {
+  margin: 0;
+  padding: 0 14px;
+  margin: 20px 0;
+  color: #454547;
+}
+.securitycenter /deep/ .changepassword .passwordinput .van-button--info {
+  background-color: #2a9f93;
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
+  border: none;
+}
+.securitycenter /deep/ .head .van-nav-bar {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.securitycenter /deep/ .head .van-nav-bar .van-nav-bar__title {
+  font-size: 18px;
+}
+.securitycenter /deep/ .head .van-nav-bar__right {
+  font-size: 18px;
+  color: #5e5e5e;
+}
+.securitycenter /deep/ .revised-content .van-cell__title .van-tag--danger {
+  font-size: 10px;
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
+  margin-left: 5px;
+  padding: 1px 5px;
+}
+/*# sourceMappingURL=./securitycenter.css.map */

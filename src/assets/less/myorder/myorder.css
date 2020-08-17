@@ -1,0 +1,209 @@
+.myorder {
+  background-color: #f3f6f6;
+  height: 100%;
+}
+.myorder /deep/ .head .van-nav-bar .van-nav-bar__title {
+  font-size: 18px;
+}
+.myorder /deep/ .head .van-nav-bar__right {
+  font-size: 18px;
+  color: #5e5e5e;
+}
+.myorder /deep/ .tab-center {
+  background-image: url("../../images/dbj.png");
+  -moz-background-size: contain;
+       background-size: contain;
+  background-repeat: no-repeat;
+}
+.myorder /deep/ .tab-center .van-tabs__content {
+  padding: 20px 20px 0;
+}
+.myorder /deep/ .tab-center .ordercenter {
+  overflow: hidden;
+}
+.myorder /deep/ .tab-center .ordercenter .order_box {
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  -webkit-border-radius: 10px 10px 0 0;
+     -moz-border-radius: 10px 10px 0 0;
+          border-radius: 10px 10px 0 0;
+  background-color: #fff;
+}
+.myorder /deep/ .tab-center .ordercenter .order_box .ordernumber {
+  padding: 10px 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+     -moz-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: #665c5c;
+}
+.myorder /deep/ .tab-center .ordercenter .order_box .ordernumber .state {
+  background-color: #23beda;
+  color: #fff;
+  padding: 0 8px;
+}
+.myorder /deep/ .tab-center .ordercenter .order_box .address h3 {
+  color: #665c5c;
+  margin: 0;
+}
+.myorder /deep/ .tab-center .ordercenter .order_box .commodity {
+  margin-top: 20px;
+  max-height: 150px;
+  background-color: #fff;
+  overflow: auto;
+}
+.myorder /deep/ .tab-center .ordercenter .order_box .commodity .commodity-center {
+  height: 75px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+     -moz-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-bottom: 2px #f3f6f6 solid;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  margin-bottom: 5px;
+}
+.myorder /deep/ .tab-center .ordercenter .order_box .commodity .commodity-center .center-left {
+  width: 100px;
+}
+.myorder /deep/ .tab-center .ordercenter .order_box .commodity .commodity-center .center-left img {
+  width: 100%;
+  height: 100%;
+}
+.myorder /deep/ .tab-center .ordercenter .order_box .commodity .commodity-center .center-right {
+  width: 100%;
+  padding: 0 10px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.myorder /deep/ .tab-center .ordercenter .order_box .commodity .commodity-center .center-right p {
+  margin: 0 0 10px 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+     -moz-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.myorder /deep/ .tab-center .ordercenter .order_box .commodity .commodity-center .center-right p:nth-of-type(1) span {
+  color: #665c5c;
+}
+.myorder /deep/ .tab-center .ordercenter .order_box .commodity .commodity-center .center-right p:nth-of-type(1) span:nth-of-type(1) {
+  font-weight: bold;
+}
+.myorder /deep/ .tab-center .ordercenter .order_box .commodity .commodity-center .center-right p:nth-of-type(2) span {
+  color: #b1a4a4;
+}
+.myorder /deep/ .tab-center .ordercenter .order_box .statistics {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+     -moz-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.myorder /deep/ .tab-center .ordercenter .order_box .statistics div {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+     -moz-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.myorder /deep/ .tab-center .ordercenter .order_box .statistics div:nth-of-type(1) {
+  color: #665c5c;
+}
+.myorder /deep/ .tab-center .ordercenter .order_box .statistics div:nth-of-type(2) {
+  text-align: right;
+}
+.myorder /deep/ .tab-center .ordercenter .order_box .statistics div:nth-of-type(2) span {
+  background-color: #22bed5;
+  padding: 3px 10px;
+  -webkit-border-radius: 15px;
+     -moz-border-radius: 15px;
+          border-radius: 15px;
+  color: #fff;
+}
+.myorder /deep/ .tab-center .ordercenter .order_price {
+  text-align: right;
+  height: 50px;
+  padding: 0 10px;
+  -webkit-border-radius: 0 0 10px 10px;
+     -moz-border-radius: 0 0 10px 10px;
+          border-radius: 0 0 10px 10px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #fff;
+  position: relative;
+  border-top: 2px #f3f6f6 dashed;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+     -moz-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.myorder /deep/ .tab-center .ordercenter .order_price::after {
+  content: "";
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-color: #f3f6f6;
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
+  position: absolute;
+  top: -8px;
+  left: -8px;
+}
+.myorder /deep/ .tab-center .ordercenter .order_price::before {
+  content: "";
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-color: #f3f6f6;
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
+  position: absolute;
+  top: -8px;
+  right: -8px;
+}
+.myorder /deep/ .tab-center .ordercenter .order_price div {
+  color: #665c5c;
+  line-height: 50px;
+}
+.myorder /deep/ .tab-center .ordercenter .order_price div:nth-of-type(1) {
+  font-size: 14px;
+}
+.myorder /deep/ .tab-center .ordercenter .order_price div:nth-of-type(2) span:nth-of-type(2) {
+  font-size: 25px;
+}
+/*# sourceMappingURL=./myorder.css.map */

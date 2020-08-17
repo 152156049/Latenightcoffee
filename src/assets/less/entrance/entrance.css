@@ -1,0 +1,104 @@
+.entrance {
+  height: 100%;
+  background-color: #23bfd1;
+}
+.entrance .van-nav-bar {
+  background-color: rgba(0, 0, 0, 0);
+}
+.entrance .entrance-head {
+  padding: 0 25px;
+  text-align: center;
+  color: #fff;
+}
+.entrance .entrance-head .logo {
+  width: 100px;
+  height: 100px;
+  margin: 20px auto 10px;
+}
+.entrance .entrance-head .logo img {
+  width: 100%;
+}
+.entrance .entrance-head h1 {
+  margin-bottom: 5px;
+}
+.entrance .entrance-head p {
+  font-size: 14px;
+  margin-top: 0;
+}
+.entrance .entrance-head /deep/ .signin .van-button--default {
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
+}
+.entrance .entrance-head /deep/ .signin .register {
+  color: #454547;
+}
+.entrance .entrance-head /deep/ .signin .register h2 {
+  font-size: 35px;
+  letter-spacing: 3px;
+  text-align: left;
+  padding-left: 25px;
+}
+.entrance .entrance-head /deep/ .signin .register .registrationtext {
+  padding: 0 25px;
+}
+.entrance .tail {
+  display: block;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+.entrance .tail p {
+  text-align: center;
+  text-decoration: underline;
+  color: #fff;
+}
+.entrance /deep/ .signin .van-cell {
+  padding-left: 0;
+  padding-right: 20px;
+  background: none;
+  border-bottom: 1px #d8d6d6 solid;
+  color: #fff;
+  margin-bottom: 20px;
+}
+.entrance /deep/ .signin .registrationtext .van-cell {
+  margin-bottom: 25px;
+  border-bottom: 1px #454547 solid;
+}
+.entrance /deep/ .signin .registrationtext .van-field__control {
+  color: #454547;
+  font-size: 16px;
+}
+.entrance /deep/ .signin .van-cell::after {
+  border: none;
+}
+.entrance /deep/ .signin .van-field__label {
+  margin: 0;
+}
+.entrance /deep/ .signin .van-field__control,
+.entrance .van-field__right-icon {
+  color: #fff;
+}
+.entrance /deep/ .signin .van-button {
+  letter-spacing: 5px;
+  color: #7384ff;
+  margin-top: 30px;
+}
+.entrance /deep/ .retrieve h2 {
+  margin: 0;
+  padding: 0 14px;
+  margin: 20px 0;
+  color: #454547;
+}
+.entrance /deep/ .retrieve .van-button--info {
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
+  background-color: #2a9f93;
+  border: none;
+}
+.entrance /deep/ .retrieve .van-popup--bottom .van-field__right-icon {
+  color: #23bfd1;
+  margin-right: 20px;
+}
+/*# sourceMappingURL=./entrance.css.map */

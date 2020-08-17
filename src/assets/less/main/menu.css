@@ -1,0 +1,80 @@
+.menu {
+  padding-top: 49px;
+  height: 100%;
+  background-color: #fff;
+}
+.menu /deep/ .option .option-nav .van-nav-bar {
+  border-bottom: 3px #f9f9fa solid;
+}
+.menu /deep/ .option .option-nav .van-nav-bar .van-nav-bar__left h1 {
+  color: #515151;
+}
+.menu /deep/ .option .option-center {
+  padding: 20px 10px;
+}
+.menu /deep/ .option .option-center .left {
+  float: left;
+}
+.menu /deep/ .option .option-center .left span {
+  font-size: 18px;
+  margin-left: 10px;
+  vertical-align: super;
+}
+.menu /deep/ .option .option-center .right {
+  float: right;
+}
+.menu /deep/ .option .option-center.active {
+  background-color: #f7f7f8;
+}
+.menu .commodity {
+  padding: 0 10px 50px;
+}
+.menu .commodity .commodity-center {
+  margin-top: 10px;
+  padding: 10px 10px;
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
+  -webkit-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+     -moz-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+}
+.menu .commodity .commodity-center h2,
+.menu .commodity .commodity-center p {
+  margin: 0 0 5px;
+}
+.menu .commodity .commodity-center h2 {
+  color: #494949;
+}
+.menu .commodity .commodity-center p {
+  color: #c2c2c2;
+  font-size: 10px;
+  padding-right: 10px;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.menu .commodity .commodity-center p:nth-of-type(2) {
+  font-size: 18px;
+  color: #eaf5f4;
+  display: inline-block;
+  padding: 1px 7px 0 5px;
+  -webkit-border-radius: 15px;
+     -moz-border-radius: 15px;
+          border-radius: 15px;
+  background-color: #2a9f93;
+}
+.menu .commodity .commodity-center p:nth-of-type(2) span:nth-of-type(1) {
+  font-size: 10px;
+}
+.menu .commodity .commodity-center img {
+  width: 100%;
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
+  margin-top: 5px;
+}
+/*# sourceMappingURL=./menu.css.map */

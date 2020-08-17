@@ -1,0 +1,27 @@
+.editaddress /deep/ .head .van-nav-bar .van-nav-bar__title {
+  font-size: 18px;
+}
+.editaddress /deep/ .head .van-nav-bar__right {
+  font-size: 18px;
+  color: #5e5e5e;
+}
+.editaddress /deep/ .addresser-center .van-switch--on {
+  background-color: #b1dcd8;
+}
+.editaddress /deep/ .addresser-center .van-address-edit__buttons .van-button--danger {
+  background-color: #7fc6bf;
+  border: 1px solid #7fc6bf;
+  color: #fff;
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
+}
+.editaddress /deep/ .addresser-center .van-address-edit__buttons .van-button--default {
+  background-color: #e0f1f0;
+  border: 1px solid #e0f1f0;
+  color: #0a6256;
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
+}
+/*# sourceMappingURL=./editaddress.css.map */

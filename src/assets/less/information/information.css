@@ -1,0 +1,104 @@
+.information {
+  padding-top: 46px;
+}
+.information /deep/ .head .van-nav-bar {
+  background-color: rgba(255, 255, 255, 0);
+}
+.information /deep/ .head .van-nav-bar .van-nav-bar__title {
+  font-size: 18px;
+}
+.information /deep/ .head .van-nav-bar__right {
+  font-size: 16px;
+  color: #ffffff;
+}
+.information /deep/ .head .van-nav-bar__right div {
+  background-color: #22c0c7;
+  padding: 0 10px;
+  -webkit-border-radius: 20px;
+     -moz-border-radius: 20px;
+          border-radius: 20px;
+}
+.information /deep/ .editor .headportrait {
+  padding: 0 20px;
+  height: 80px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+     -moz-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 20px;
+  position: relative;
+}
+.information /deep/ .editor .headportrait .van-uploader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.information /deep/ .editor .headportrait .van-uploader .van-uploader__wrapper {
+  height: 100%;
+}
+.information /deep/ .editor .headportrait .van-uploader .van-uploader__wrapper .van-uploader__upload {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+.information /deep/ .editor .headportrait .headportrait-left {
+  width: 80px;
+  height: 100%;
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
+  overflow: hidden;
+  -moz-background-size: cover;
+       background-size: cover;
+}
+.information /deep/ .editor .headportrait .text-left {
+  line-height: 80px;
+}
+.information .addtocart {
+  width: 100%;
+  height: 50px;
+  padding: 0 20px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.information .addtocart .addtocart-center {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 10px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
+  background-color: #2a9f93;
+  color: #fff;
+  text-align: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+/*# sourceMappingURL=./information.css.map */
