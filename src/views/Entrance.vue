@@ -225,7 +225,7 @@ export default {
       info.appkey = this.appkey;
       // 序列化传参
       let data = utils.queryString(info);
-      // console.log(data);
+      // Replace
 
       // 发送请求
       this.axios({
@@ -236,7 +236,6 @@ export default {
       })
         .then((result) => {
           this.$toast.clear();
-          console.log(result);
 
           if (result.data.code == 100) {
             this.show = false;
@@ -255,7 +254,6 @@ export default {
         .catch((err) => {
           // 关闭等待提示ui
           this.$toast.clear();
-          console.log("出错了,请重试", err);
         });
     },
     // 登录验证,登录请求
@@ -302,7 +300,7 @@ export default {
         .then((result) => {
           // 移除加载动画
           this.$toast.clear();
-          // console.log(result);
+          // Replace
           if (result.data.code == 200) {
             // 将登录信息储存到本地
             localStorage.setItem("NO", result.data.token);
@@ -319,12 +317,12 @@ export default {
         .catch((err) => {
           this.$toast.clear();
 
-          // console.log(err);
+          // Replace
         });
     },
     // 找回密码
     retrieve(values) {
-      // console.log("submit", values);
+      // Replace
       let token = localStorage.getItem("NO");
       // 手机号
       let tel = values.username;
@@ -357,7 +355,7 @@ export default {
         url: "/retrievePassword",
         data,
       }).then((result) => {
-        // console.log(result);
+        // Replace
         if (result.data.code == "L001") {
           this.$toast(result.data.msg);
           this.username = "";

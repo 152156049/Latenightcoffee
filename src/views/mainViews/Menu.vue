@@ -105,7 +105,7 @@ export default {
         url: "/type",
         params: { appkey: this.appkey },
       }).then((result) => {
-        // console.log(result);
+        // Replace
         let categorycolumn = result.data.result;
         if (result.data.code == 400) {
           categorycolumn.map((v, i) => {
@@ -157,7 +157,7 @@ export default {
           value: types,
         },
       }).then((result) => {
-        // console.log(result);
+        // Replace
 
         let commodity = result.data.result;
         if (result.data.code == 500) {

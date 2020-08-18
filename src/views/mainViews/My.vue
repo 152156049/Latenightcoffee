@@ -202,7 +202,7 @@ export default {
         },
       })
         .then((result) => {
-          // console.log(result);
+          // Replace
           if (result.data.code == "A001") {
             this.$toast.clear();
             this.userImg = result.data.result[0].userImg;
@@ -213,9 +213,7 @@ export default {
             }
           }
         })
-        .catch((err) => {
-          console.log(err);
-        });
+        .catch((err) => {});
     },
     // 无背景
     nobackground() {
@@ -225,7 +223,7 @@ export default {
     },
     // 上传背景图
     backgroundimage(file) {
-      // console.log(file);
+      // Replace
       this.defaults = false;
       localStorage.setItem("defaults", this.defaults);
       let token = localStorage.getItem("NO");
@@ -233,7 +231,7 @@ export default {
       let imgmin = file.file.type.indexOf("/");
       let base64 = file.content.slice(basemin + 1);
       let imgtype = file.file.type.slice(imgmin + 1);
-      // console.log(imgtype);
+      // Replace
 
       // 参数序列化
       let data = {
@@ -243,7 +241,7 @@ export default {
         serverBase64Img: base64,
       };
       data = utils.queryString(data);
-      // console.log(data);
+      // Replace
       // 发起请求
       this.axios({
         method: "POST",
@@ -251,15 +249,13 @@ export default {
         data,
       })
         .then((result) => {
-          // console.log(result);
+          // Replace
           if (result.data.code == "I001") {
             this.personalcenterdata();
             this.isshow = false;
           }
         })
-        .catch((err) => {
-          console.log(err);
-        });
+        .catch((err) => {});
     },
     // 限制类型提示
     beforeRead(file) {
@@ -308,7 +304,7 @@ export default {
             url: "/logout",
             data,
           }).then((result) => {
-            // console.log(result);
+            // Replace
             if (result.data.code == "F001") {
               this.$dialog
                 .alert({
@@ -346,10 +342,10 @@ export default {
     //     },
     //   })
     //     .then((result) => {
-    //       console.log(result);
+    //       Replace
     //     })
     //     .catch((err) => {
-    //       console.log(err);
+    //       Replace
     //     });
     // },
   },

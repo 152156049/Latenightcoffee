@@ -46,7 +46,7 @@ export default {
     },
     // 新增地址请求
     newrequest(content) {
-      // console.log(content);
+      // Replace
       // 获取用户的token
       let token = localStorage.getItem("NO");
       // 加载提示
@@ -71,7 +71,7 @@ export default {
         isDefault: this.default,
       };
       data = utils.queryString(data);
-      console.log(data);
+
       // 发起请求
       this.axios({
         method: "POST",
@@ -79,16 +79,13 @@ export default {
         data,
       })
         .then((result) => {
-          console.log(result);
           if (result.data.code == 9000) {
             this.$toast.clear();
             this.$toast(result.data.msg);
             this.$router.go(-1);
           }
         })
-        .catch((err) => {
-          console.log(err);
-        });
+        .catch((err) => {});
     },
 
     // 设置默认地址
@@ -98,7 +95,6 @@ export default {
       } else {
         this.default = 0;
       }
-      console.log(this.default);
     },
   },
 };

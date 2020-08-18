@@ -151,7 +151,7 @@ export default {
       } else {
         sid = JSON.stringify(this.sid);
       }
-      // console.log(typeof this.sid);
+      // Replace
       // 获取用户的token
       let token = localStorage.getItem("NO");
       // 加载效果
@@ -170,7 +170,7 @@ export default {
           sids: sid,
         },
       }).then((result) => {
-        // console.log(result);
+        // Replace
         let data = result.data.result;
         if (result.data.code == 50000) {
           this.$toast.clear();
@@ -197,7 +197,7 @@ export default {
         },
       })
         .then((result) => {
-          // console.log("地址数据", result);
+          // Replace
           let data = result.data.result;
           if (result.data.code == 20000) {
             data.map((v) => {
@@ -215,9 +215,7 @@ export default {
             });
           }
         })
-        .catch((err) => {
-          console.log(err);
-        });
+        .catch((err) => {});
     },
 
     // 点击获取地址数据
@@ -244,7 +242,7 @@ export default {
         },
       })
         .then((result) => {
-          // console.log("地址数据", result);
+          // Replace
           let data = result.data.result;
           if (result.data.code == 20000) {
             this.list = [];
@@ -267,9 +265,7 @@ export default {
             });
           }
         })
-        .catch((err) => {
-          console.log(err);
-        });
+        .catch((err) => {});
     },
 
     // 切换地址
@@ -309,13 +305,12 @@ export default {
       let data = {
         appkey: this.appkey,
         tokenString: token,
-        sids: JSON.stringify([this.sid]),
+        sids: JSON.stringify(this.sid),
         phone: this.displayaddress.tel,
         address: this.displayaddress.address,
         receiver: this.displayaddress.name,
       };
       data = utils.queryString(data);
-      // console.log(data);
 
       // 发起请求
       this.axios({
@@ -323,9 +318,11 @@ export default {
         url: "/pay",
         data,
       }).then((result) => {
-        // console.log(result);
         if (result.data.code == 60000) {
           this.$toast.success("结算成功");
+          setTimeout(() => {
+            this.$router.go(-1);
+          }, 1000);
         }
       });
     },

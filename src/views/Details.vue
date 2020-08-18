@@ -164,7 +164,7 @@ export default {
           pid: this.pid,
         },
       }).then((result) => {
-        // console.log(result);
+        // Replace
 
         if (result.data.code == 600) {
           this.$toast.clear();
@@ -219,7 +219,7 @@ export default {
               });
             }
           }
-          // console.log(this.price);
+          // Replace
         }
       });
     },
@@ -233,11 +233,11 @@ export default {
     },
     // 选择规格
     switchoption(item) {
-      // console.log(item);
+      // Replace
     },
     // 计算价格
     cumulative() {
-      // console.log(parseFloat(this.price));
+      // Replace
       this.totalprice = "￥" + parseFloat(this.price) * this.pricenum + ".00";
     },
     // 收藏/取消收藏
@@ -264,37 +264,33 @@ export default {
       data = utils.queryString(data);
 
       if (!this.isicon) {
-        // console.log("收藏");
+        // Replace
         this.axios({
           method: "POST",
           url: "/like",
           data,
         })
           .then((result) => {
-            // console.log("收藏商品的接口=>", result);
+            // Replace
             if (result.data.code == 800) {
               this.$toast(result.data.msg);
             }
           })
-          .catch((err) => {
-            console.log(err);
-          });
+          .catch((err) => {});
       } else {
-        // console.log("取消收藏");
+        // Replace
         this.axios({
           method: "POST",
           url: "/notlike",
           data,
         })
           .then((result) => {
-            // console.log("取消收藏商品的接口=>", result);
+            // Replace
             if (result.data.code == 900) {
               this.$toast(result.data.msg);
             }
           })
-          .catch((err) => {
-            console.log(err);
-          });
+          .catch((err) => {});
       }
     },
     // 刷新动态显示收藏状态
@@ -319,9 +315,7 @@ export default {
             this.isicon = false;
           }
         })
-        .catch((err) => {
-          console.log(err);
-        });
+        .catch((err) => {});
     },
     // 点击加入购物车
     clickshopping() {
@@ -369,16 +363,14 @@ export default {
         data,
       })
         .then((result) => {
-          // console.log("购物车数据", result);
+          // Replace
           if (result.data.code == 3000) {
             this.$toast.clear();
             this.$toast(result.data.msg);
             this.shoppingcarttotal();
           }
         })
-        .catch((err) => {
-          console.log(err);
-        });
+        .catch((err) => {});
 
       // 获取购物车数据
     },
@@ -396,14 +388,12 @@ export default {
         },
       })
         .then((result) => {
-          // console.log(result);
+          // Replace
           if (result.data.code == 4000) {
             this.badges = result.data.result;
           }
         })
-        .catch((err) => {
-          console.log(err);
-        });
+        .catch((err) => {});
     },
   },
 };

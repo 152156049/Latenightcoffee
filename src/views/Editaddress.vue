@@ -95,7 +95,7 @@ export default {
         isDefault: this.default,
       };
       data = utils.queryString(data);
-      console.log(data);
+
       // 发起请求
       this.axios({
         method: "POST",
@@ -103,15 +103,12 @@ export default {
         data,
       })
         .then((result) => {
-          console.log(result);
           if (result.data.code == 30000) {
             this.$toast.clear();
             this.$toast(result.data.msg);
           }
         })
-        .catch((err) => {
-          console.log(err);
-        });
+        .catch((err) => {});
     },
     // 删除地址请求
     deleteaddress(content) {
@@ -137,7 +134,6 @@ export default {
         data,
       })
         .then((result) => {
-          console.log(result);
           if (result.data.code == 10000) {
             this.$toast.clear();
             this.$toast(result.data.msg);
@@ -146,9 +142,7 @@ export default {
             this.$router.go(-1);
           }
         })
-        .catch((err) => {
-          console.log(err);
-        });
+        .catch((err) => {});
     },
     // 设置默认地址
     setdefault() {

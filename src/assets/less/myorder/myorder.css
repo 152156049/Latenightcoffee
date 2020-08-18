@@ -1,6 +1,5 @@
 .myorder {
   background-color: #f3f6f6;
-  height: 100%;
 }
 .myorder /deep/ .head .van-nav-bar .van-nav-bar__title {
   font-size: 18px;
@@ -20,6 +19,7 @@
 }
 .myorder /deep/ .tab-center .ordercenter {
   overflow: hidden;
+  margin-bottom: 30px;
 }
 .myorder /deep/ .tab-center .ordercenter .order_box {
   padding: 10px;

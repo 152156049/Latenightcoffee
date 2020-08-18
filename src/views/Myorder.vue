@@ -10,162 +10,51 @@
     </div>
     <!-- tag切换栏 -->
     <div class="tab-center">
-      <van-tabs v-model="activeName" @click="switchlabel">
-        <van-tab title="全部订单" name="1">
-          <div class="ordercenter">
+      <van-tabs v-model="activeName" @change="switchlabel">
+        <van-tab :title="item.title" v-for="(item,index) in tabItems" :key="index">
+          <div class="ordercenter" v-for="(v,i) in orderdata" :key="i">
             <div class="order_box">
               <div class="ordernumber">
-                <div class="numbers">订单号:12345678912345</div>
+                <div class="numbers">订单号:{{v.orderId}}</div>
                 <div class="state">待取餐</div>
               </div>
               <div class="address">
-                <h3>来自星星的你</h3>
+                <h3>{{v.address}}</h3>
               </div>
               <div class="commodity">
-                <div class="commodity-center">
+                <div class="commodity-center" v-for="(value,is) in v.products" :key="is">
                   <div class="center-left">
-                    <img
-                      src="http://www.kangliuyong.com:10002/images/product_small/IMG_0378_02p.jpg"
-                      alt
-                    />
+                    <img :src="value.smallImg" alt />
                   </div>
                   <div class="center-right">
                     <p>
-                      <span>卡布奇诺</span>
-                      <span>￥28.00</span>
+                      <span>{{value.name}}</span>
+                      <span>￥{{value.price}}</span>
                     </p>
                     <p>
-                      <span>默认奶油/多糖</span>
-                      <span>*1</span>
+                      <span>{{value.rule}}</span>
+                      <span>*{{value.count}}</span>
                     </p>
                   </div>
                 </div>
               </div>
               <div class="statistics">
                 <div class="statistic-number">
-                  <span>2020-08-17 13:18:54</span>
+                  <span>{{v.date | formatDate('yyyy-MM-dd hh:mm:ss')}}</span>
                 </div>
-                <!-- <div class="statistic-price">
-                <span>￥28.00</span>
-                </div>-->
+
                 <div class="operation">
-                  <span>确认收货</span>
+                  <span @click="confirmorder(v)">确认收货</span>
                 </div>
               </div>
             </div>
             <div class="order_price">
               <div>
-                <span>共计1件商品</span>
+                <span>共计{{v.count}}件商品</span>
               </div>
               <div>
                 <span>￥</span>
-                <span>28.00</span>
-              </div>
-            </div>
-          </div>
-        </van-tab>
-        <van-tab title="进行中" name="2">
-          <div class="ordercenter">
-            <div class="order_box">
-              <div class="ordernumber">
-                <div class="numbers">订单号:12345678912345</div>
-                <div class="state">待取餐</div>
-              </div>
-              <div class="address">
-                <h3>来自星星的你</h3>
-              </div>
-              <div class="commodity">
-                <div class="commodity-center">
-                  <div class="center-left">
-                    <img
-                      src="http://www.kangliuyong.com:10002/images/product_small/IMG_0378_02p.jpg"
-                      alt
-                    />
-                  </div>
-                  <div class="center-right">
-                    <p>
-                      <span>卡布奇诺</span>
-                      <span>￥28.00</span>
-                    </p>
-                    <p>
-                      <span>默认奶油/多糖</span>
-                      <span>*1</span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="statistics">
-                <div class="statistic-number">
-                  <span>2020-08-17 13:18:54</span>
-                </div>
-                <!-- <div class="statistic-price">
-                <span>￥28.00</span>
-                </div>-->
-                <div class="operation">
-                  <span>确认收货</span>
-                </div>
-              </div>
-            </div>
-            <div class="order_price">
-              <div>
-                <span>共计1件商品</span>
-              </div>
-              <div>
-                <span>￥</span>
-                <span>28.00</span>
-              </div>
-            </div>
-          </div>
-        </van-tab>
-        <van-tab title="已完成" name="3">
-          <div class="ordercenter">
-            <div class="order_box">
-              <div class="ordernumber">
-                <div class="numbers">订单号:12345678912345</div>
-                <div class="state">待取餐</div>
-              </div>
-              <div class="address">
-                <h3>来自星星的你</h3>
-              </div>
-              <div class="commodity">
-                <div class="commodity-center">
-                  <div class="center-left">
-                    <img
-                      src="http://www.kangliuyong.com:10002/images/product_small/IMG_0378_02p.jpg"
-                      alt
-                    />
-                  </div>
-                  <div class="center-right">
-                    <p>
-                      <span>卡布奇诺</span>
-                      <span>￥28.00</span>
-                    </p>
-                    <p>
-                      <span>默认奶油/多糖</span>
-                      <span>*1</span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="statistics">
-                <div class="statistic-number">
-                  <span>2020-08-17 13:18:54</span>
-                </div>
-                <!-- <div class="statistic-price">
-                <span>￥28.00</span>
-                </div>-->
-                <div class="operation">
-                  <span>确认收货</span>
-                </div>
-              </div>
-            </div>
-            <div class="order_price">
-              <div>
-                <span>共计1件商品</span>
-              </div>
-              <div>
-                <span>￥</span>
-                <span>28.00</span>
+                <span>{{v.total}}.00</span>
               </div>
             </div>
           </div>
@@ -181,18 +70,91 @@ export default {
   name: "Myorder",
   data() {
     return {
-      activeName: "1",
+      n: "2020-08-13T02:18:50.000Z",
+      activeName: 0,
+      orderdata: [],
+      tabItems: [{ title: "全部" }, { title: "进行中" }, { title: "已完成" }],
     };
   },
-  created() {},
+  created() {
+    this.switchlabel(0);
+  },
   methods: {
     // 返回上一层
     fhiu() {
       this.$router.go(-1);
     },
-    // 切换标签
-    switchlabel(name) {
-      // console.log(name);
+    // 获取订单数据
+    switchlabel(status) {
+      // Replace
+      let token = localStorage.getItem("NO");
+      if (!token) {
+        return;
+      }
+      // 发起请求
+      // 加载效果
+      this.$toast.loading({
+        message: "加载中...",
+        forbidClick: true,
+        duration: 0,
+        loadingType: "circular",
+      });
+      this.axios({
+        method: "GET",
+        url: "/findOrder",
+        params: {
+          appkey: this.appkey,
+          tokenString: token,
+          status,
+        },
+      })
+        .then((result) => {
+          // Replace
+          let data = result.data.result;
+          let orderdataarr = {};
+          if (result.data.code == "70000") {
+            this.orderdata = [];
+            this.$toast.clear();
+
+            result.data.result.map((v) => {
+              if (!orderdataarr[v.oid]) {
+                //如果不存在该订单数据，则初始化一个对象
+                orderdataarr[v.oid] = {
+                  orderId: v.oid,
+                  address: v.address,
+                  date: v.createdAt,
+                  count: v.count,
+                  total: v.count * v.price,
+                  products: [v],
+                  status: v.status,
+                };
+              } else {
+                orderdataarr[v.oid].count += v.count;
+                orderdataarr[v.oid].total += v.count * v.price;
+                orderdataarr[v.oid].products.push(v);
+              }
+            });
+            for (let key in orderdataarr) {
+              this.orderdata.push(orderdataarr[key]);
+            }
+
+            this.orderdata.sort((a, b) => {
+              return new Date(b.date).getTime() - new Date(a.date).getTime();
+            });
+            // Replace
+          }
+        })
+        .catch((err) => {});
+      // 发起请求
+    },
+    // 切换标签获取数据
+    toggleStatus(name) {
+      this.switchlabel(name);
+    },
+    // 确认订单
+    confirmorder(item) {
+      // Replace
+      let oid = item.orderId;
     },
   },
 };

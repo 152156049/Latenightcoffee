@@ -144,7 +144,7 @@ export default {
         oldPassword: oldpassword,
       };
       data = utils.queryString(data);
-      // console.log(data);
+      // Replace
       // 发起请求
       this.axios({
         method: "POST",
@@ -152,7 +152,7 @@ export default {
         data,
       })
         .then((result) => {
-          // console.log(result);
+          // Replace
           if (result.data.code == "E003") {
             this.$notify({
               type: "warning",
@@ -169,9 +169,7 @@ export default {
               });
           }
         })
-        .catch((err) => {
-          console.log(err);
-        });
+        .catch((err) => {});
     },
     // 注销账号
     cancelaccount() {
@@ -195,7 +193,6 @@ export default {
             url: "/destroyAccount",
             data,
           }).then((result) => {
-            console.log(result);
             this.$dialog
               .alert({
                 message: "注销成功",

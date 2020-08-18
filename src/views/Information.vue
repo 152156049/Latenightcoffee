@@ -93,7 +93,6 @@ export default {
     },
     // 头像上传
     headportrait(file) {
-      console.log(file);
       let token = localStorage.getItem("NO");
       let basemin = file.content.indexOf(",");
       let imgmin = file.file.type.indexOf("/");
@@ -107,22 +106,20 @@ export default {
         serverBase64Img: base64,
       };
       data = utils.queryString(data);
-      // console.log(data);
+      // Replace
       this.axios({
         method: "POST",
         url: "/updateAvatar",
         data,
       })
         .then((result) => {
-          // console.log(result);
+          // Replace
           if (result.data.code == "H001") {
             this.accountinformation();
             this.$toast("修改成功");
           }
         })
-        .catch((err) => {
-          console.log(err);
-        });
+        .catch((err) => {});
     },
     // 限制类型提示
     beforeRead(file) {
@@ -159,7 +156,7 @@ export default {
         },
       })
         .then((result) => {
-          // console.log(result);
+          // Replace
           let data = result.data.result;
           if (result.data.code == "B001") {
             this.$toast.clear();
@@ -170,9 +167,7 @@ export default {
             this.message = data[0].desc;
           }
         })
-        .catch((err) => {
-          console.log(err);
-        });
+        .catch((err) => {});
     },
     // 显示保存按钮
     displaysave() {
@@ -203,8 +198,7 @@ export default {
       };
       namedata = utils.queryString(namedata);
       descdata = utils.queryString(descdata);
-      console.log(namedata);
-      console.log(descdata);
+
       // 昵称发起请求
       this.axios({
         method: "POST",
@@ -212,14 +206,12 @@ export default {
         data: namedata,
       })
         .then((result) => {
-          // console.log(result);
+          // Replace
           if (result.data.code == "C001") {
             isname = true;
           }
         })
-        .catch((err) => {
-          console.log(err);
-        });
+        .catch((err) => {});
 
       // 简介发起请求
       this.axios({
@@ -228,7 +220,7 @@ export default {
         data: descdata,
       })
         .then((result) => {
-          // console.log(result);
+          // Replace
 
           if (result.data.code == "D001") {
             isdesc = true;
@@ -238,9 +230,7 @@ export default {
             }
           }
         })
-        .catch((err) => {
-          console.log(err);
-        });
+        .catch((err) => {});
     },
   },
 };

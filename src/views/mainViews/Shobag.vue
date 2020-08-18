@@ -187,11 +187,11 @@ export default {
         },
       })
         .then((result) => {
-          // console.log(result);
+          // Replace
           let data = result.data.result;
           if (result.data.code == 5000) {
             this.$toast.clear();
-            // console.log(data);
+            // Replace
             data.map((v, i) => {
               this.shoppingdata.push({
                 isactive: false,
@@ -204,9 +204,7 @@ export default {
             });
           }
         })
-        .catch((err) => {
-          console.log(err);
-        });
+        .catch((err) => {});
     },
     // 管理按钮切换
     administration() {
@@ -299,7 +297,7 @@ export default {
           sidarr.push(v.sid);
         }
       });
-      // console.log(sidarr);
+      // Replace
       // 数据序列化
       let data = {
         appkey: this.appkey,
@@ -317,7 +315,7 @@ export default {
         })
           .then((result) => {
             if (result.data.code == 7000) {
-              // console.log("删除成功");
+              // Replace
               for (let i = this.shoppingdata.length - 1; i >= 0; i--) {
                 if (this.shoppingdata[i].isactive == true) {
                   this.shoppingdata.splice(i, 1);
@@ -327,9 +325,7 @@ export default {
               }
             }
           })
-          .catch((err) => {
-            console.log(err);
-          });
+          .catch((err) => {});
       } else {
         this.$toast("还没有勾选!");
       }

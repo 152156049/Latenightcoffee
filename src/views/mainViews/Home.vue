@@ -153,7 +153,6 @@ export default {
         params: { appkey: this.appkey },
       })
         .then((result) => {
-          console.log("轮播图", result);
           let bannerimg = result.data.result;
           if (result.data.code == 300) {
             this.$toast.clear();
@@ -167,22 +166,20 @@ export default {
             sessionStorage.setItem("bannerData", JSON.stringify(this.rotation));
           }
         })
-        .catch((err) => {
-          console.log(err);
-        });
+        .catch((err) => {});
     },
     // 获取今日推荐
     getcommodityType() {
       // 判断本地缓存是否有数据,如果有则不发起请求
       let sessiondata = JSON.parse(sessionStorage.getItem("commodityData"));
-      // console.log(sessiondata);
+      // Replace
       if (sessiondata) {
         this.commodity = sessiondata;
         this.$nextTick(() => {
           let width = this.$refs.ulli0[0].clientWidth;
-          // console.log(width);
+          // Replace
           this.maxwight = width * sessiondata.length + 180;
-          // console.log(width);
+          // Replace
         });
         return;
       }
@@ -193,7 +190,7 @@ export default {
         params: { appkey: this.appkey, key: "isHot", value: 1 },
       })
         .then((result) => {
-          // console.log(result);
+          // Replace
 
           if (result.data.code == 500) {
             let commodity = result.data.result;
@@ -202,7 +199,7 @@ export default {
             // 提取数据
             commodity.map((v, i) => {
               is = i + 1;
-              // console.log(i);
+              // Replace
               this.commodity.push({
                 name: v.name,
                 price: `￥` + v.price,
@@ -222,9 +219,7 @@ export default {
             });
           }
         })
-        .catch((err) => {
-          console.log(err);
-        });
+        .catch((err) => {});
     },
     // 获取正在热销
     getclassIfication() {
@@ -233,7 +228,7 @@ export default {
         url: "/type",
         params: { appkey: this.appkey },
       }).then((result) => {
-        // console.log(result);
+        // Replace
         let classIfication = result.data.result;
         if (result.data.code == 400) {
           classIfication.map((v, i) => {
@@ -244,7 +239,7 @@ export default {
               id: i,
             });
           });
-          // console.log(this.classIfication);
+          // Replace
         }
       });
     },
