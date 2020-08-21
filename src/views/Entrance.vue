@@ -92,8 +92,8 @@
     </div>
     <!-- 忘记密码弹出层 -->
     <div class="retrieve">
-      <van-popup round closeable v-model="isshow" position="bottom" :style="{ height: '40%' }">
-        <h2>找回密码</h2>
+      <van-popup round closeable v-model="isshow" position="bottom" :style="{ height: '60%' }">
+        <h1>找回密码</h1>
 
         <van-form @submit="retrieve">
           <van-field
@@ -113,6 +113,40 @@
             :right-icon="isactive ? 'eye-o': 'closed-eye'"
             @click-right-icon="smalleyes"
           />
+          <van-field
+            v-model="email"
+            size="large"
+            type="'text'"
+            name="email"
+            label="邮箱"
+            placeholder="输入存在的邮箱"
+          />
+          <van-field
+            class="control"
+            v-model="sms"
+            name="sms"
+            center
+            clearable
+            label="邮箱验证码"
+            placeholder="请输入邮箱验证码"
+          >
+            <template #button>
+              <van-button
+                v-if="isdisable"
+                size="small"
+                native-type="button"
+                @click="mailboxnumber"
+                type="primary"
+              >发送验证码</van-button>
+              <van-button
+                v-else
+                disabled
+                size="small"
+                native-type="button"
+                type="default"
+              >{{countdown}}秒再次发送</van-button>
+            </template>
+          </van-field>
           <div style="margin: 16px;">
             <van-button round block type="info" native-type="submit">确 定</van-button>
           </div>
@@ -144,10 +178,15 @@ export default {
       // 忘记密码信息
       username: "",
       password: "",
+      email: "",
+      sms: "",
+      countdown: 60,
+
       iseyes: true,
       show: false,
       isshow: false,
       isactive: false,
+      isdisable: true,
     };
   },
   methods: {
@@ -322,6 +361,7 @@ export default {
     },
     // 找回密码
     retrieve(values) {
+      // console.log(values);
       // Replace
       let token = localStorage.getItem("NO");
       // 手机号
@@ -329,7 +369,14 @@ export default {
       // 新密码
       let newpassword = values.password;
 
+      // 验证码
+      let validCode = this.sms;
       let newsObj = {
+        phone: {
+          value: tel,
+          reg: /^1[3-9]\d{9}$/,
+          errorMsg: "手机格式不正确",
+        },
         password: {
           value: newpassword,
           reg: /^[A-Za-z]\w{5,15}$/,
@@ -341,32 +388,126 @@ export default {
         // 验证不通过
         return;
       }
+      if (!this.email) {
+        this.$notify({
+          type: "warning",
+          message: "邮箱不能为空",
+        });
+        return;
+      }
 
-      // 序列化
+      // 发起邮箱验证
       let data = {
         appkey: this.appkey,
-        phone: tel,
-        password: newpassword,
+        validCode,
       };
       data = utils.queryString(data);
+      // console.log(data);
 
       this.axios({
         method: "POST",
-        url: "/retrievePassword",
+        url: "/checkValidCode",
         data,
       }).then((result) => {
-        // Replace
-        if (result.data.code == "L001") {
-          this.$toast(result.data.msg);
-          this.username = "";
-          this.password = "";
-          this.isshow = false;
+        // console.log(result);
+        if (result.data.code == "K001") {
+          // 序列化
+          let data = {
+            appkey: this.appkey,
+            phone: tel,
+            password: newpassword,
+          };
+          data = utils.queryString(data);
+
+          this.axios({
+            method: "POST",
+            url: "/retrievePassword",
+            data,
+          }).then((result) => {
+            // Replace
+            if (result.data.code == "L001") {
+              this.$toast(result.data.msg);
+              this.username = "";
+              this.password = "";
+              this.email = "";
+              this.sms = "";
+              this.isshow = false;
+            }
+            if (result.data.code == "L003") {
+              this.$notify({
+                type: "warning",
+                message: result.data.msg,
+              });
+            }
+            if (result.data.code == "L004") {
+              this.$notify({
+                type: "warning",
+                message: result.data.msg,
+              });
+            }
+          });
+        } else {
+          this.$notify({
+            type: "warning",
+            message: "验证码不正确",
+          });
         }
-        if (result.data.code == "L003") {
-          this.$toast(result.data.msg);
-        }
-        if (result.data.code == "L004") {
-          this.$toast(result.data.msg);
+      });
+    },
+    // 发送邮箱验证码
+    mailboxnumber() {
+      // console.log(this.email);
+      let email = this.email;
+
+      // 邮箱验证验证
+      let newsObj = {
+        email: {
+          value: email,
+          reg: /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/,
+          errorMsg: "邮箱格式不正确",
+        },
+      };
+
+      if (!validForm.valid(newsObj)) {
+        // 验证不通过
+        return;
+      }
+
+      // 开启加载提示
+      this.$toast.loading({
+        message: "努力加载中...",
+        forbidClick: true,
+        duration: 0,
+        loadingType: "circular",
+      });
+      // 参数序列化
+      let data = {
+        appkey: this.appkey,
+        email,
+      };
+      data = utils.queryString(data);
+      console.log(data);
+      // 发送请求
+      this.axios({
+        method: "POST",
+        url: "/emailValidCode",
+        data,
+      }).then((result) => {
+        // console.log(result);
+        if (result.data.code == "J001") {
+          this.$toast.clear();
+          this.$toast("验证码发送成功");
+          this.isdisable = false;
+          this.countdown = 60;
+
+          let itemr = setInterval(() => {
+            this.countdown--;
+            if (this.countdown == 0) {
+              this.countdown = 0;
+              this.isdisable = true;
+              clearInterval(itemr);
+            }
+          }, 1000);
         }
       });
     },

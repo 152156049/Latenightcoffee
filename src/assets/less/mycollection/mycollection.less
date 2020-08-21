@@ -1,0 +1,110 @@
+.mycollection {
+  /deep/ .head {
+    .van-nav-bar {
+      // background-color: rgba(255, 255, 255, 0.3);
+
+      .van-nav-bar__title {
+        font-size: 18px;
+      }
+    }
+
+    .van-nav-bar__right {
+      font-size: 18px;
+      color: #5e5e5e;
+    }
+  }
+  /deep/.emptystate {
+    padding-top: 100px;
+
+    .van-empty {
+      padding: 0;
+    }
+
+    .van-empty__bottom {
+      .van-button--danger {
+        background-color: #7fc6bf;
+        height: 35px;
+        border: none;
+        letter-spacing: 1px;
+        padding: 0 20px;
+      }
+    }
+  }
+  .collection {
+    padding: 10px 20px;
+    box-sizing: border-box;
+    background-color: #fff;
+    margin-top: 20px;
+    /deep/.collection-content {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      margin-bottom: 20px;
+      border-bottom: 2px #f3f1f1 solid;
+      &:last-child {
+        border: none;
+      }
+      .content-left {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        overflow: hidden;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .content-right {
+        width: calc(100% - 100px);
+        height: 100%;
+        padding: 0 10px;
+        box-sizing: border-box;
+        div {
+          margin-bottom: 5px;
+
+          &:nth-of-type(1) {
+            span {
+              font-weight: bold;
+              font-size: 16px;
+              color: #515151;
+            }
+          }
+          &:nth-of-type(2) {
+            color: #bfb9b9;
+          }
+          &:nth-of-type(3) {
+            display: inline-block;
+            background-color: #2a9f93;
+            padding: 0 7px 0 5px;
+            border-radius: 10px;
+            span {
+              color: #fff;
+
+              &:nth-of-type(2) {
+                font-size: 14px;
+              }
+            }
+          }
+          &:nth-of-type(4) {
+            span {
+              line-height: 25px;
+              display: block;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              overflow: hidden;
+              color: #bfb9b9;
+            }
+            .van-icon {
+              vertical-align: top;
+            }
+          }
+        }
+      }
+      .iconbox {
+        .van-icon {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}

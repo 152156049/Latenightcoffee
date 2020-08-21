@@ -1,0 +1,21 @@
+.myaddress /deep/ .head .van-nav-bar .van-nav-bar__title {
+  font-size: 18px;
+}
+.myaddress /deep/ .head .van-nav-bar__right {
+  font-size: 18px;
+  color: #5e5e5e;
+}
+.myaddress /deep/ .addresslist .van-tag--danger {
+  background-color: #7fc6bf;
+}
+.myaddress /deep/ .addresslist .van-address-list__bottom {
+  margin-bottom: 20px;
+}
+.myaddress /deep/ .addresslist .van-address-list__bottom .van-button--round {
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
+  background-color: #7fc6bf;
+  border: none;
+}
+/*# sourceMappingURL=./myaddress.css.map */

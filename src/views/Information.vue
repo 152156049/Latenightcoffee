@@ -31,11 +31,8 @@
         </div>
         <div class="text-left">点击修改头像</div>
       </div>
-      <!-- 输入任意文本 -->
       <van-field v-model="name" label="昵称" @input="displaysave" maxlength="6" />
-      <!-- 输入手机号，调起手机号键盘 -->
       <van-field v-model="tel" label="账号" readonly />
-      <!-- 允许输入正整数，调起纯数字键盘 -->
       <van-field v-model="id" label="ID" readonly />
       <van-field
         v-model="message"

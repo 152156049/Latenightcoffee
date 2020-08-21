@@ -6,8 +6,13 @@
 .menu /deep/ .option .option-nav .van-nav-bar {
   border-bottom: 3px #f9f9fa solid;
 }
+.menu /deep/ .option .option-nav .van-nav-bar .van-nav-bar__left {
+  padding-left: 20px;
+}
 .menu /deep/ .option .option-nav .van-nav-bar .van-nav-bar__left h1 {
   color: #515151;
+  font-size: 30px;
+  font-weight: inherit;
 }
 .menu /deep/ .option .option-center {
   padding: 20px 10px;

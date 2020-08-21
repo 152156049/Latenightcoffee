@@ -63,6 +63,20 @@ export const routes = [{
         component: () =>
             import ("../views/Myorder.vue"),
     },
+    // 我的地址页
+    {
+        path: "/myaddress",
+        name: "Myaddress",
+        component: () =>
+            import ("../views/Myaddress.vue"),
+    },
+    // 我的收藏页
+    {
+        path: "/mycollection",
+        name: "Mycollection",
+        component: () =>
+            import ("../views/Mycollection.vue"),
+    },
     // 新增地址页
     {
         path: "/newaddress",

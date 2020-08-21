@@ -84,8 +84,9 @@
   color: #7384ff;
   margin-top: 30px;
 }
-.entrance /deep/ .retrieve h2 {
+.entrance /deep/ .retrieve h1 {
   margin: 0;
+  font-size: 30px;
   padding: 0 14px;
   margin: 20px 0;
   color: #454547;
@@ -99,6 +100,13 @@
 }
 .entrance /deep/ .retrieve .van-popup--bottom .van-field__right-icon {
   color: #23bfd1;
-  margin-right: 20px;
+  margin-right: 5px;
+}
+.entrance /deep/ .retrieve .control .van-field__value .van-field__body .van-button--primary {
+  background-color: #23bfd1;
+  border: none;
+}
+.entrance /deep/ .retrieve .control .van-field__value .van-field__body .van-field__control {
+  padding-left: 10px;
 }
 /*# sourceMappingURL=./entrance.css.map */

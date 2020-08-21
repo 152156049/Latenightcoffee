@@ -121,9 +121,12 @@ this.$cookies.set(键名, 值, 过期时间)
 ```txt
 vscode 当前项目全局匹配 ctrl+shift+f
 
-比如删除所有console.log(语句);
+比如删除所有
 
-console.log(.+);?
+全局匹配console.log()语句
+
+使用正则匹配
+console.log\(.*\);?
 
 
 vue-cli4 打包
@@ -132,6 +135,17 @@ vue-cli4 打包
 2、保证vue项目没有任何vue抛出的警告或者错误
 3、去除所有console.log()语句
 4、在根目录下创建vue.config.js, 写入 module.exports = {publicPath: './'}
+```
+
+```txt
+安装sublime text3
+ctrl+shift+p，输入 install package control, 然后回车
+
+通过package control安装插件
+ctrl+shift+p, 输入install, 选择 package control: install packge
+
+等待加载插件仓库后，输入安装的插件名称
+
 ```
 
 # 0C34BA 主题色
@@ -277,7 +291,7 @@ keep-alive: 保持失活的路由组件状态, 如果访问过的路由组件，
 ```
 
 ```txt
-  取消收藏商品接口
+  取消(删除)收藏商品接口
   请求地址：http://www.kangliuyong.com:10002/notlike
   请求类型： POST
   请求参数： {
@@ -489,7 +503,7 @@ keep-alive: 保持失活的路由组件状态, 如果访问过的路由组件，
 
 ```
 ```txt
-  结算页面查询需要购买商品接口
+  提交订单页面查询需要购买商品接口
   请求地址：http://www.kangliuyong.com:10002/commitShopcart
   请求类型： GET
   请求参数： {
@@ -565,7 +579,7 @@ keep-alive: 保持失活的路由组件状态, 如果访问过的路由组件，
 ```
 
 ```txt
-  账号管理接口
+  个人资料接口
   请求地址：http://www.kangliuyong.com:10002/findAccountInfo
   请求类型： GET
   请求参数： {

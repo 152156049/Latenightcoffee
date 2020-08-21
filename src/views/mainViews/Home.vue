@@ -5,23 +5,58 @@
       <van-nav-bar :border="false">
         <template #left>
           <div class="head-title">
-            <p>营业到 21:00</p>
-            <h1>{{itemText}}</h1>
+            <p>最晚营业到 15:00</p>
+            <h1>{{itemText}}{{nickName}}</h1>
           </div>
         </template>
         <template #right>
           <!-- <van-icon name="weapp-nav" :size="30" color="#515151" /> -->
-          <div class="head-place">
+          <div class="head-place" @click="jumpmyaddress" v-if="address">
             <span>配送至:</span>
-            <span>你的心里</span>
-            <van-icon class="icon" name="arrow" />
+            <span>{{address}}</span>
+            <span>
+              <van-icon class="icon" name="arrow" />
+            </span>
+          </div>
+          <div class="head-place" v-else @click="gotologin">
+            <span>未登录</span>
           </div>
         </template>
       </van-nav-bar>
     </div>
     <!-- 搜索框 -->
     <div class="search">
-      <van-search placeholder="请输入商品名称" />
+      <van-search placeholder="请输入商品名称" @focus="searchPopup" />
+    </div>
+    <!-- 搜索弹出层 -->
+    <div class="searchlayer">
+      <van-popup v-model="issearch" position="top" :style="{ height: '60%' }">
+        <!-- 输入框 -->
+        <div class="searchbar">
+          <van-search
+            v-model="searchcontent"
+            placeholder="请输入商品名称"
+            size="20"
+            show-action
+            :autofocus="true"
+            @blur="searchnull"
+          >
+            <template #action>
+              <div @click="searchrequest">搜索</div>
+            </template>
+          </van-search>
+
+          <!-- 搜索结果展示 -->
+          <div class="searchresult">
+            <ul>
+              <li v-for="(item,index) in searchdata" :key="index" @click="jumpdetails(item)">
+                <span>{{item.name}}</span>
+                <van-icon name="arrow" size="20" />
+              </li>
+            </ul>
+          </div>
+        </div>
+      </van-popup>
     </div>
     <!-- 轮播图 -->
     <div class="rotation">
@@ -85,7 +120,6 @@
 
 <script>
 import "../../assets/less/main/home.less";
-
 export default {
   name: "Home",
   data() {
@@ -105,6 +139,17 @@ export default {
       ],
       itemText: "",
       maxwight: 0,
+
+      // 用户名称
+      nickName: "",
+      // 用户地址
+      address: "",
+      issearch: false,
+
+      // 输入的内容
+      searchcontent: "",
+      // 搜索的数据
+      searchdata: [],
     };
   },
   created() {
@@ -114,20 +159,62 @@ export default {
     this.getclassIfication();
   },
   methods: {
-    // 获取时间
+    // 获取时间,名称,地址
     getitemDate() {
       let gethours = new Date().getHours();
       if (gethours >= 6 && gethours < 12) {
-        this.itemText = "早上好!";
+        this.itemText = "早上好";
       } else if (gethours >= 12 && gethours < 15) {
-        this.itemText = "中午好!";
+        this.itemText = "中午好";
       } else if (gethours >= 15 && gethours < 19) {
-        this.itemText = "下午好!";
+        this.itemText = "下午好";
       } else if (gethours >= 19 && gethours < 24) {
-        this.itemText = "晚上好!";
+        this.itemText = "晚上好";
       } else if (gethours >= 24 && gethours < 6) {
-        this.itemText = "打烊了,亲!";
+        this.itemText = "晚安";
       }
+      let token = localStorage.getItem("NO");
+      if (!token) {
+        // 用户名称
+        this.nickName = "";
+        // 用户地址
+        this.address = "";
+        return;
+      }
+      // 发起请求
+      // 获取名称
+      this.axios({
+        method: "GET",
+        url: "/findMy",
+        params: {
+          appkey: this.appkey,
+          tokenString: token,
+        },
+      }).then((result) => {
+        // console.log(result);
+        if (result.data.code == "A001") {
+          this.nickName = "," + result.data.result[0].nickName;
+        }
+      });
+      // 地址请求
+      this.axios({
+        method: "GET",
+        url: "/findAddress",
+        params: {
+          appkey: this.appkey,
+          tokenString: token,
+        },
+      }).then((result) => {
+        // console.log(result);
+        let data = result.data.result;
+        if (result.data.code == "20000") {
+          data.map((v) => {
+            if (v.isDefault == 1) {
+              this.address = v.addressDetail;
+            }
+          });
+        }
+      });
     },
     // 获取轮播图数据
     getbannerData() {
@@ -243,13 +330,59 @@ export default {
         }
       });
     },
+    // 搜索请求
+    searchrequest() {
+      let name = this.searchcontent;
+
+      // 判断输入框是否为空
+      if (this.searchcontent) {
+        // 发起请求
+        this.axios({
+          method: "GET",
+          url: "/search",
+          params: {
+            appkey: this.appkey,
+            name,
+          },
+        }).then((result) => {
+          let data = result.data.result;
+          if (result.data.code == "Q001") {
+            this.searchdata = [];
+
+            data.map((v) => {
+              this.searchdata.push(v);
+            });
+          }
+        });
+      } else {
+        this.searchdata = [];
+      }
+    },
+    // 判断输入框是否为空
+    searchnull() {
+      if (!this.searchcontent) {
+        this.searchdata = [];
+      }
+    },
+    // 搜索弹出层
+    searchPopup() {
+      this.issearch = true;
+    },
     // 选择推荐商品跳转到详情页
     jumpdetails(item) {
       this.$router.push({ name: "Details", query: { pid: item.pid } });
     },
+    // 选择推荐商品跳转到菜单页
+    jumpmyaddress(item) {
+      this.$router.push({ name: "Myaddress" });
+    },
     // 跳转到菜单页面
     getintoMenu(item) {
       this.$router.push({ name: "Menu", query: { id: item } });
+    },
+    // 去登录页面
+    gotologin() {
+      this.$router.push({ name: "Entrance" });
     },
   },
 };

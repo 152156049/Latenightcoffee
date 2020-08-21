@@ -177,8 +177,8 @@ export default {
         }
       });
     },
+    // 跳转到详情页
     switchProducts(item) {
-      // 跳转到详情页
       this.$router.push({ name: "Details", query: { pid: item.pid } });
     },
   },

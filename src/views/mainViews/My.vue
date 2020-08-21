@@ -103,10 +103,10 @@
         <div @click="gotomyorder">
           <van-cell title="我的订单" is-link arrow-direction size="large" icon="bag-o" />
         </div>
-        <div>
+        <div @click="gotomyaddress">
           <van-cell title="收货地址" is-link arrow-direction size="large" icon="location-o" />
         </div>
-        <div>
+        <div @click="gotomycollection">
           <van-cell title="我的收藏" is-link arrow-direction size="large" icon="star-o" />
         </div>
         <div @click="onSelect">
@@ -281,7 +281,6 @@ export default {
     jumpinformation() {
       this.$router.push({ name: "Information" });
     },
-
     // 退出登录
     logout() {
       this.$dialog
@@ -323,31 +322,18 @@ export default {
     gotologin() {
       this.$router.push({ name: "Entrance" });
     },
-
     // 去我的订单页面
     gotomyorder() {
       this.$router.push({ name: "Myorder" });
     },
-    // 获取所有收藏
-    // allcollection() {
-    //   // 发起请求
-    //   let token = localStorage.getItem("NO");
-    //   let bool = true;
-    //   this.axios({
-    //     method: "GET",
-    //     url: "/findAllLike",
-    //     params: {
-    //       appkey: this.appkey,
-    //       tokenString: token,
-    //     },
-    //   })
-    //     .then((result) => {
-    //       Replace
-    //     })
-    //     .catch((err) => {
-    //       Replace
-    //     });
-    // },
+    // 去我的地址页面
+    gotomyaddress() {
+      this.$router.push({ name: "Myaddress" });
+    },
+    // 去我的收藏页面
+    gotomycollection() {
+      this.$router.push({ name: "Mycollection" });
+    },
   },
 };
 </script>

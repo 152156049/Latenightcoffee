@@ -3,11 +3,11 @@
     <!-- 空状态 -->
     <div class="emptystate" v-if="shoppingdata.length<=0">
       <van-empty
-        description="比我脸还干净"
+        description="空空如也喔"
         :image="require('../../assets/images/emptystate.png')"
         v-if="istloggedin"
       >
-        <van-button round type="danger" class="bottom-button" @click="Jumphome">去首页逛逛</van-button>
+        <van-button round type="danger" class="bottom-button" @click="Jumphome">去逛逛菜单</van-button>
       </van-empty>
       <van-empty
         description="还没有登录呢"
@@ -144,10 +144,7 @@ export default {
     fhiu() {
       this.$router.push({ name: "Menu" });
     },
-    // 跳转到首页逛逛
-    Jumphome() {
-      this.$router.push({ name: "Home" });
-    },
+
     // 跳转到订单信息页面
     Jumporderpage() {
       let selectdata = [];
@@ -351,6 +348,10 @@ export default {
     // 去登录页面
     gotologin() {
       this.$router.push({ name: "Entrance" });
+    },
+    // 跳转到首页逛逛
+    Jumphome() {
+      this.$router.push({ name: "Menu" });
     },
   },
 };

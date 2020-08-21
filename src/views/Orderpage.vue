@@ -183,7 +183,7 @@ export default {
       });
     },
 
-    // 获取显示默认数据
+    // 获取显示默认地址
     getdefaultaddress() {
       // 获取用户的token
       let token = localStorage.getItem("NO");
@@ -205,7 +205,7 @@ export default {
                 this.displayaddress.name = v.name;
                 this.displayaddress.tel = v.tel;
                 this.displayaddress.address =
-                  v.city + v.county + v.addressDetail;
+                  v.province + v.city + v.county + v.addressDetail;
                 this.displayaddress.isDefault = Boolean(v.isDefault);
 
                 if (v.isDefault) {
@@ -253,7 +253,7 @@ export default {
                 aid: v.aid,
                 name: v.name,
                 tel: v.tel,
-                address: v.city + v.county + v.addressDetail,
+                address: v.province + v.city + v.county + v.addressDetail,
                 isDefault: Boolean(v.isDefault),
                 province: v.province,
                 city: v.city,

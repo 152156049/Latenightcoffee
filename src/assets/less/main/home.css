@@ -1,14 +1,8 @@
-body {
-  background-color: #fcfcfc;
-}
 .home {
   padding: 0 15px 50px;
 }
 .home .head {
   padding-top: 20px;
-}
-.home .head /deep/ .van-nav-bar {
-  background-color: #fcfcfc;
 }
 .home .head .head-title p,
 .home .head .head-title h1 {
@@ -17,6 +11,7 @@ body {
 .home .head .head-title p {
   color: #c8c8c8;
   font-size: 10px;
+  text-align: left;
 }
 .home .head .head-place {
   height: 30px;
@@ -30,11 +25,21 @@ body {
 .home .head .head-place span:nth-of-type(1) {
   color: #6d6f70;
   margin-right: 5px;
+  vertical-align: top;
 }
 .home .head .head-place span:nth-of-type(2) {
   font-weight: bold;
   color: #494a4a;
   margin-right: 5px;
+  display: inline-block;
+  width: 56px;
+  white-space: nowrap;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+  overflow: hidden;
+}
+.home .head .head-place span:nth-of-type(3) {
+  vertical-align: top;
 }
 .home .head .head-place .icon {
   vertical-align: middle;
@@ -56,6 +61,45 @@ body {
 }
 .home /deep/ .search .van-search {
   padding: 0;
+}
+.home /deep/ .searchlayer .van-popup {
+  background-image: url(../../images/wl.png);
+  -moz-background-size: 100px;
+       background-size: 100px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+.home /deep/ .searchlayer .searchbar {
+  margin-top: 40px;
+}
+.home /deep/ .searchlayer .searchbar .searchresult ul {
+  padding: 16px;
+  height: 250px;
+  overflow: auto;
+}
+.home /deep/ .searchlayer .searchbar .searchresult ul li {
+  font-size: 16px;
+  background-color: #f7f8fa;
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
+  padding: 5px 5px;
+  padding-left: 15px;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #515151;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+     -moz-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.home /deep/ .searchlayer .searchbar .searchresult ul li .van-icon {
+  vertical-align: sub;
 }
 .home /deep/ .rotation {
   -webkit-border-radius: 10px;
@@ -131,7 +175,7 @@ body {
   -webkit-border-radius: 20px;
      -moz-border-radius: 20px;
           border-radius: 20px;
-  background-color: #569cb7;
+  background-color: #2a9f93;
   text-align: center;
   color: #fff;
 }

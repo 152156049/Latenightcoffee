@@ -12,11 +12,18 @@
     <div class="tab-center">
       <van-tabs v-model="activeName" @change="switchlabel">
         <van-tab :title="item.title" v-for="(item,index) in tabItems" :key="index">
-          <div class="ordercenter" v-for="(v,i) in orderdata" :key="i">
+          <van-empty
+            :image="require('../assets/images/emptystate.png')"
+            description="无该订单记录"
+            v-if="orderdata.length<1"
+          />
+
+          <div class="ordercenter" v-for="(v,i) in orderdata" :key="i" v-else>
             <div class="order_box">
               <div class="ordernumber">
                 <div class="numbers">订单号:{{v.orderId}}</div>
-                <div class="state">待取餐</div>
+                <div class="state" v-if="v.status == 1">待取餐</div>
+                <div class="statewc" v-else-if="v.status == 2">已完成</div>
               </div>
               <div class="address">
                 <h3>{{v.address}}</h3>
@@ -44,7 +51,8 @@
                 </div>
 
                 <div class="operation">
-                  <span @click="confirmorder(v)">确认收货</span>
+                  <span @click="confirmorder(v,i) " v-if="v.status == 1">确认收货</span>
+                  <span class="czuowc" @click="deleteorder(v,i)" v-else-if="v.status == 2">删除</span>
                 </div>
               </div>
             </div>
@@ -66,13 +74,18 @@
 
 <script>
 import "../assets/less/myorder/myorder.less";
+import { utils } from "../assets/js/utils";
 export default {
   name: "Myorder",
   data() {
     return {
       n: "2020-08-13T02:18:50.000Z",
       activeName: 0,
+      // 订单数据
       orderdata: [],
+      // 订单状态码
+      status: 0,
+      // 切换栏标签
       tabItems: [{ title: "全部" }, { title: "进行中" }, { title: "已完成" }],
     };
   },
@@ -86,6 +99,8 @@ export default {
     },
     // 获取订单数据
     switchlabel(status) {
+      this.status = status;
+
       // Replace
       let token = localStorage.getItem("NO");
       if (!token) {
@@ -147,14 +162,76 @@ export default {
         .catch((err) => {});
       // 发起请求
     },
-    // 切换标签获取数据
-    toggleStatus(name) {
-      this.switchlabel(name);
-    },
     // 确认订单
-    confirmorder(item) {
+    confirmorder(item, index) {
       // Replace
+      let token = localStorage.getItem("NO");
+
       let oid = item.orderId;
+
+      this.$toast.loading({
+        message: "加载中...",
+        forbidClick: true,
+        duration: 0,
+        loadingType: "circular",
+      });
+      // 参数序列化
+
+      let data = {
+        appkey: this.appkey,
+        tokenString: token,
+        oid,
+      };
+      data = utils.queryString(data);
+      // console.log(data);
+      // 发起请求
+      this.axios({
+        method: "POST",
+        url: "/receive",
+        data,
+      }).then((result) => {
+        console.log(result);
+        if (result.data.code == "80000") {
+          this.$toast.clear();
+          if (this.status != 0) {
+            this.orderdata.splice(index, 1);
+          } else {
+            this.switchlabel(0);
+          }
+        }
+      });
+    },
+    // 删除订单
+    deleteorder(item, index) {
+      let token = localStorage.getItem("NO");
+      let oid = item.orderId;
+      this.$toast.loading({
+        message: "加载中...",
+        forbidClick: true,
+        duration: 0,
+        loadingType: "circular",
+      });
+      // 参数序列化
+
+      let data = {
+        appkey: this.appkey,
+        tokenString: token,
+        oid,
+      };
+      data = utils.queryString(data);
+      // console.log(data);
+      // 发起请求
+      this.axios({
+        method: "POST",
+        url: "/removeOrder",
+        data,
+      }).then((result) => {
+        console.log(result);
+        if (result.data.code == "90000") {
+          this.$toast.clear();
+          this.orderdata.splice(index, 1);
+        }
+      });
     },
   },
 };

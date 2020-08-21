@@ -1,5 +1,6 @@
 .myorder {
   background-color: #f3f6f6;
+  height: 100%;
 }
 .myorder /deep/ .head .van-nav-bar .van-nav-bar__title {
   font-size: 18px;
@@ -8,13 +9,14 @@
   font-size: 18px;
   color: #5e5e5e;
 }
-.myorder /deep/ .tab-center {
+.myorder /deep/ .tab-center .van-tabs__nav .van-tabs__line {
+  background-color: #2a9f93;
+}
+.myorder /deep/ .tab-center .van-tabs__content {
   background-image: url("../../images/dbj.png");
   -moz-background-size: contain;
        background-size: contain;
   background-repeat: no-repeat;
-}
-.myorder /deep/ .tab-center .van-tabs__content {
   padding: 20px 20px 0;
 }
 .myorder /deep/ .tab-center .ordercenter {
@@ -50,6 +52,12 @@
   background-color: #23beda;
   color: #fff;
   padding: 0 8px;
+}
+.myorder /deep/ .tab-center .ordercenter .order_box .ordernumber .statewc {
+  background-color: #23beda;
+  color: #fff;
+  padding: 0 8px;
+  background-color: #daa127;
 }
 .myorder /deep/ .tab-center .ordercenter .order_box .address h3 {
   color: #665c5c;
@@ -149,6 +157,14 @@
           border-radius: 15px;
   color: #fff;
 }
+.myorder /deep/ .tab-center .ordercenter .order_box .statistics div:nth-of-type(2) .czuowc {
+  background-color: #daa127;
+  padding: 3px 10px;
+  -webkit-border-radius: 15px;
+     -moz-border-radius: 15px;
+          border-radius: 15px;
+  color: #fff;
+}
 .myorder /deep/ .tab-center .ordercenter .order_price {
   text-align: right;
   height: 50px;
@@ -205,5 +221,8 @@
 }
 .myorder /deep/ .tab-center .ordercenter .order_price div:nth-of-type(2) span:nth-of-type(2) {
   font-size: 25px;
+}
+.myorder /deep/ .tab-center .van-empty {
+  padding-top: 100px;
 }
 /*# sourceMappingURL=./myorder.css.map */
