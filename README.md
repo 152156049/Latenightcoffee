@@ -123,17 +123,16 @@ vscode 当前项目全局匹配 ctrl+shift+f
 
 比如删除所有
 
-全局匹配console.log()语句
+全局匹配语句
 
 使用正则匹配
 console.log\(.*\);?
-
 
 vue-cli4 打包
 
 1、删除路由的hisotry模式
 2、保证vue项目没有任何vue抛出的警告或者错误
-3、去除所有console.log()语句
+3、去除所有语句console.log\(.*\);?
 4、在根目录下创建vue.config.js, 写入 module.exports = {publicPath: './'}
 ```
 

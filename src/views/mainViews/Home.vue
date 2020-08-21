@@ -14,9 +14,9 @@
           <div class="head-place" @click="jumpmyaddress" v-if="address">
             <span>配送至:</span>
             <span>{{address}}</span>
-            <span>
+            <!-- <span>
               <van-icon class="icon" name="arrow" />
-            </span>
+            </span>-->
           </div>
           <div class="head-place" v-else @click="gotologin">
             <span>未登录</span>
