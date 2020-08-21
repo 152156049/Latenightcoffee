@@ -321,7 +321,7 @@ export default {
         if (result.data.code == 60000) {
           this.$toast.success("结算成功");
           setTimeout(() => {
-            this.$router.go(-1);
+            this.$router.push({ name: "Shobag" });
           }, 1000);
         }
       });

@@ -1,6 +1,6 @@
 .myorder {
   background-color: #f3f6f6;
-  height: 100%;
+  min-height: 666px;
 }
 .myorder /deep/ .head .van-nav-bar .van-nav-bar__title {
   font-size: 18px;
@@ -62,6 +62,10 @@
 .myorder /deep/ .tab-center .ordercenter .order_box .address h3 {
   color: #665c5c;
   margin: 0;
+  white-space: nowrap;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+  overflow: hidden;
 }
 .myorder /deep/ .tab-center .ordercenter .order_box .commodity {
   margin-top: 20px;

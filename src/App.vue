@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <!-- 一级路由插座 -->
-    <!-- <h1>登录界面</h1> -->
     <router-view />
   </div>
 </template>

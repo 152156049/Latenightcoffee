@@ -176,7 +176,7 @@ export default {
       this.$dialog
         .confirm({
           title: "注销账号",
-          message: "确注销您的账号吗?",
+          message: "确定注销您的账号吗?",
         })
         .then(() => {
           let token = localStorage.getItem("NO");

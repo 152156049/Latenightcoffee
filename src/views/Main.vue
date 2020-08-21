@@ -44,8 +44,8 @@ export default {
         {
           title: "菜单",
           icon: {
-            isActiva: "shop-o",
-            leaveActiva: "shop",
+            isActiva: "bill-o",
+            leaveActiva: "bill",
           },
           url: {
             name: "Menu",
@@ -54,8 +54,8 @@ export default {
         {
           title: "订单",
           icon: {
-            isActiva: "cart-o",
-            leaveActiva: "cart",
+            isActiva: "bag-o",
+            leaveActiva: "bag",
           },
           url: {
             name: "Shobag",

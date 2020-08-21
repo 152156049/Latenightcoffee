@@ -48,7 +48,7 @@
     </div>
     <div class="addtocart" v-if="isbool" @click="preservation">
       <div class="addtocart-center">
-        <div>保存</div>
+        <div>保 存</div>
       </div>
     </div>
   </div>

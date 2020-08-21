@@ -28,14 +28,7 @@
           />
           <div>
             <van-button round block type="default" native-type="submit" @click="signin">登录</van-button>
-            <van-button
-              round
-              block
-              type="default"
-              color="#6f7dd0"
-              native-type="submit"
-              @click="showPopup"
-            >注册</van-button>
+            <van-button round block type="default" native-type="submit" @click="showPopup">注册</van-button>
             <!-- 注册弹出层 -->
             <van-popup
               v-model="show"
@@ -62,9 +55,14 @@
                   />
                   <van-field
                     v-model="Registrationinfo.password"
-                    type="password"
+                    :type="isnoteeye? 'password':'text'"
                     placeholder="密码(以字母开头,最少6位字符)"
-                  />
+                    @click-right-icon="registereyes"
+                  >
+                    <template #right-icon>
+                      <van-icon :name="isnoteeye ?'closed-eye':'eye-o'" color="#2a9f93" />
+                    </template>
+                  </van-field>
                   <van-field
                     v-model="Registrationinfo.confirmpassword"
                     type="password"
@@ -85,6 +83,7 @@
         </van-form>
       </div>
     </div>
+    <!-- 忘记密码 -->
     <div class="tail">
       <p>
         <span @click="forgettinglayer">忘记密码?</span>
@@ -106,11 +105,11 @@
           <van-field
             v-model="password"
             size="large"
-            :type="!isactive ? 'password': 'text'"
+            :type="isactive ? 'password': 'text'"
             name="password"
             label="新密码"
             placeholder="以大小字母开头,大于6位的数字"
-            :right-icon="isactive ? 'eye-o': 'closed-eye'"
+            :right-icon="isactive ?  'closed-eye':'eye-o'"
             @click-right-icon="smalleyes"
           />
           <van-field
@@ -180,28 +179,43 @@ export default {
       password: "",
       email: "",
       sms: "",
-      countdown: 60,
+      // 再次发送验证码倒计时
+      countdown: 15,
 
+      // 注册小眼睛切换
+      isnoteeye: true,
+      // 登录小眼睛切换
       iseyes: true,
+      // 忘记密码小眼睛切换
+      isactive: true,
+
+      // 验证码发送等待时间切换
+      isdisable: true,
+
+      // 弹出层
       show: false,
       isshow: false,
-      isactive: false,
-      isdisable: true,
     };
   },
   methods: {
-    // 眼睛查看密码
+    // 切换登录密码小眼睛
     switcheyes() {
       this.iseyes = !this.iseyes;
     },
-    // 注册弹出层
-    showPopup() {
-      this.show = true;
+    // 切换注册密码小眼睛
+    registereyes() {
+      this.isnoteeye = !this.isnoteeye;
     },
     // 切换忘记密码小眼睛
     smalleyes() {
       this.isactive = !this.isactive;
     },
+
+    // 注册弹出层
+    showPopup() {
+      this.show = true;
+    },
+
     // 忘记密码弹出层
     forgettinglayer() {
       this.isshow = true;
@@ -361,7 +375,7 @@ export default {
     },
     // 找回密码
     retrieve(values) {
-      // console.log(values);
+      //
       // Replace
       let token = localStorage.getItem("NO");
       // 手机号
@@ -402,14 +416,14 @@ export default {
         validCode,
       };
       data = utils.queryString(data);
-      // console.log(data);
+      //
 
       this.axios({
         method: "POST",
         url: "/checkValidCode",
         data,
       }).then((result) => {
-        // console.log(result);
+        //
         if (result.data.code == "K001") {
           // 序列化
           let data = {
@@ -456,7 +470,7 @@ export default {
     },
     // 发送邮箱验证码
     mailboxnumber() {
-      // console.log(this.email);
+      //
       let email = this.email;
 
       // 邮箱验证验证
@@ -486,24 +500,23 @@ export default {
         email,
       };
       data = utils.queryString(data);
-      console.log(data);
+
       // 发送请求
       this.axios({
         method: "POST",
         url: "/emailValidCode",
         data,
       }).then((result) => {
-        // console.log(result);
+        //
         if (result.data.code == "J001") {
           this.$toast.clear();
           this.$toast("验证码发送成功");
           this.isdisable = false;
-          this.countdown = 60;
 
           let itemr = setInterval(() => {
             this.countdown--;
-            if (this.countdown == 0) {
-              this.countdown = 0;
+            if (this.countdown < 1) {
+              this.countdown = 15;
               this.isdisable = true;
               clearInterval(itemr);
             }

@@ -183,14 +183,14 @@ export default {
         oid,
       };
       data = utils.queryString(data);
-      // console.log(data);
+      // 
       // 发起请求
       this.axios({
         method: "POST",
         url: "/receive",
         data,
       }).then((result) => {
-        console.log(result);
+        
         if (result.data.code == "80000") {
           this.$toast.clear();
           if (this.status != 0) {
@@ -219,14 +219,14 @@ export default {
         oid,
       };
       data = utils.queryString(data);
-      // console.log(data);
+      // 
       // 发起请求
       this.axios({
         method: "POST",
         url: "/removeOrder",
         data,
       }).then((result) => {
-        console.log(result);
+        
         if (result.data.code == "90000") {
           this.$toast.clear();
           this.orderdata.splice(index, 1);

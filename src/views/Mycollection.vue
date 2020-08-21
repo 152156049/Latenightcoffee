@@ -81,7 +81,7 @@ export default {
     // 取消收藏
     collection(item, index) {
       item.isicon = !item.isicon;
-      // console.log("isicom=>", item.isicon);
+      //
       // 加载提示
       this.$toast.loading({
         message: "加载中...",
@@ -101,7 +101,7 @@ export default {
         url: "/notlike",
         data,
       }).then((result) => {
-        // console.log(result);
+        //
         if (result.data.code == "900") {
           this.$toast.clear();
 
@@ -116,6 +116,7 @@ export default {
       let token = localStorage.getItem("NO");
       if (!token) {
         this.istloggedin = false;
+        return;
       }
       // 加载效果
       this.$toast.loading({
@@ -134,7 +135,7 @@ export default {
         },
       })
         .then((result) => {
-          // console.log(result);
+          //
           let data = result.data.result;
           if (result.data.code == "2000") {
             this.$toast.clear();
@@ -142,12 +143,10 @@ export default {
               v.isicon = true;
               this.collectiondata.push(v);
             });
-            // console.log(this.collectiondata);
+            //
           }
         })
-        .catch((err) => {
-          console.log(result);
-        });
+        .catch((err) => {});
     },
     // 去登录页面
     gotologin() {

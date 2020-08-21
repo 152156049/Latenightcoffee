@@ -5,6 +5,19 @@
   font-size: 18px;
   color: #5e5e5e;
 }
+.myaddress /deep/ .emptystate {
+  padding-top: 100px;
+}
+.myaddress /deep/ .emptystate .van-empty {
+  padding: 0;
+}
+.myaddress /deep/ .emptystate .van-empty__bottom .van-button--danger {
+  background-color: #7fc6bf;
+  height: 35px;
+  border: none;
+  letter-spacing: 1px;
+  padding: 0 20px;
+}
 .myaddress /deep/ .addresslist .van-tag--danger {
   background-color: #7fc6bf;
 }

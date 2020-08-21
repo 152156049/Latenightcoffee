@@ -8,9 +8,19 @@
         </template>
       </van-nav-bar>
     </div>
-
+    <!-- 空状态 -->
+    <div class="emptystate" v-if="list.length<=0">
+      <van-empty
+        description="还没添加地址喔"
+        :image="require('../assets/images/emptystate.png')"
+        v-if="istloggedin"
+      ></van-empty>
+      <van-empty description="还没有登录呢" :image="require('../assets/images/notloggedin.png')" v-else>
+        <van-button round type="danger" class="bottom-button" @click="gotologin">去登录</van-button>
+      </van-empty>
+    </div>
     <!-- 收货地址内容 -->
-    <div class="addresslist">
+    <div class="addresslist" v-if="istloggedin">
       <van-address-list
         :list="list"
         :switchable="false"
@@ -31,6 +41,7 @@ export default {
   data() {
     return {
       list: [],
+      istloggedin: true,
     };
   },
 
@@ -46,6 +57,17 @@ export default {
     getdefaultaddress() {
       // 获取用户的token
       let token = localStorage.getItem("NO");
+      if (!token) {
+        this.istloggedin = false;
+        return;
+      }
+      // 加载效果
+      this.$toast.loading({
+        message: "加载中...",
+        forbidClick: true,
+        duration: 0,
+        loadingType: "circular",
+      });
       // 发起请求
       this.axios({
         method: "GET",
@@ -58,9 +80,9 @@ export default {
         .then((result) => {
           // Replace
           let data = result.data.result;
-          console.log(data);
 
-          if (result.data.code == 20000) {
+          if (result.data.code == "20000") {
+            this.$toast.clear();
             data.map((v) => {
               this.list.push({
                 name: v.name,
@@ -87,6 +109,10 @@ export default {
     // 跳转到编辑地址
     jumpedit(item) {
       this.$router.push({ name: "Editaddress", query: { editdata: item } });
+    },
+    // 去登录页面
+    gotologin() {
+      this.$router.push({ name: "Entrance" });
     },
   },
 };

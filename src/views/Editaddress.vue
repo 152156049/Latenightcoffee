@@ -95,7 +95,7 @@ export default {
         isDefault: this.default,
       };
       data = utils.queryString(data);
-      console.log(data);
+      
       // 发起请求
       this.axios({
         method: "POST",

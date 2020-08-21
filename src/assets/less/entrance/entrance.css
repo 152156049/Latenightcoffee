@@ -30,6 +30,11 @@
      -moz-border-radius: 10px;
           border-radius: 10px;
 }
+.entrance .entrance-head /deep/ .signin .van-button--default:nth-of-type(2) {
+  border: none;
+  background-color: #7784ce8e;
+  color: #fff;
+}
 .entrance .entrance-head /deep/ .signin .register {
   color: #454547;
 }
@@ -63,7 +68,7 @@
 }
 .entrance /deep/ .signin .registrationtext .van-cell {
   margin-bottom: 25px;
-  border-bottom: 1px #454547 solid;
+  border-bottom: 1px #a5a5b1 solid;
 }
 .entrance /deep/ .signin .registrationtext .van-field__control {
   color: #454547;

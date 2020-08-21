@@ -120,12 +120,13 @@
 
 <script>
 import "../../assets/less/main/home.less";
+import bannerdata from "../../assets/js/bannerdata";
 export default {
   name: "Home",
   data() {
     return {
       // 轮播图数据
-      rotation: [],
+      rotation: bannerdata,
       // 今日推荐数据
       commodity: [],
       // 正在热销数据
@@ -154,7 +155,7 @@ export default {
   },
   created() {
     this.getitemDate();
-    this.getbannerData();
+    // this.getbannerData();
     this.getcommodityType();
     this.getclassIfication();
   },
@@ -191,7 +192,7 @@ export default {
           tokenString: token,
         },
       }).then((result) => {
-        // console.log(result);
+        //
         if (result.data.code == "A001") {
           this.nickName = "," + result.data.result[0].nickName;
         }
@@ -205,7 +206,7 @@ export default {
           tokenString: token,
         },
       }).then((result) => {
-        // console.log(result);
+        //
         let data = result.data.result;
         if (result.data.code == "20000") {
           data.map((v) => {
@@ -218,21 +219,12 @@ export default {
     },
     // 获取轮播图数据
     getbannerData() {
-      // 加载提示
-      this.$toast.loading({
-        message: "加载中...",
-        forbidClick: true,
-        duration: 0,
-        loadingType: "circular",
-      });
       // 判断本地缓存是否有数据,如果有则不发起请求
       let sessiondata = sessionStorage.getItem("bannerData");
       if (sessiondata) {
-        this.$toast.clear();
         this.rotation = JSON.parse(sessiondata);
         return;
       }
-
       // 获取数据
       this.axios({
         method: "GET",
@@ -242,7 +234,6 @@ export default {
         .then((result) => {
           let bannerimg = result.data.result;
           if (result.data.code == 300) {
-            this.$toast.clear();
             bannerimg.map((v) => {
               this.rotation.push({
                 bannerImg: v.bannerImg,
@@ -257,10 +248,19 @@ export default {
     },
     // 获取今日推荐
     getcommodityType() {
+      // 加载提示
+      this.$toast.loading({
+        message: "加载中...",
+        forbidClick: true,
+        duration: 0,
+        loadingType: "circular",
+      });
       // 判断本地缓存是否有数据,如果有则不发起请求
       let sessiondata = JSON.parse(sessionStorage.getItem("commodityData"));
       // Replace
       if (sessiondata) {
+        this.$toast.clear();
+
         this.commodity = sessiondata;
         this.$nextTick(() => {
           let width = this.$refs.ulli0[0].clientWidth;
@@ -280,6 +280,8 @@ export default {
           // Replace
 
           if (result.data.code == 500) {
+            this.$toast.clear();
+
             let commodity = result.data.result;
 
             let is = 0;
