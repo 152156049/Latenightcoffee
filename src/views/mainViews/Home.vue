@@ -11,9 +11,11 @@
         </template>
         <template #right>
           <!-- <van-icon name="weapp-nav" :size="30" color="#515151" /> -->
-          <div class="head-place" @click="jumpmyaddress" v-if="address">
+          <div class="head-place" @click="jumpmyaddress" v-if="isdlu">
             <span>配送至:</span>
-            <span>{{address}}</span>
+            <span v-if="address">{{address}}</span>
+
+            <span v-else>去编辑</span>
             <!-- <span>
               <van-icon class="icon" name="arrow" />
             </span>-->
@@ -146,6 +148,7 @@ export default {
       // 用户地址
       address: "",
       issearch: false,
+      isdlu: true,
 
       // 输入的内容
       searchcontent: "",
@@ -180,6 +183,7 @@ export default {
         this.nickName = "";
         // 用户地址
         this.address = "";
+        this.isdlu = false;
         return;
       }
       // 发起请求
