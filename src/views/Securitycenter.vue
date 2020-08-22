@@ -198,6 +198,8 @@ export default {
                 message: "注销成功",
               })
               .then(() => {
+                localStorage.removeItem("NO");
+
                 this.$router.push({ name: "Entrance" });
               });
           });
