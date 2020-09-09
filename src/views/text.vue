@@ -6,7 +6,7 @@
 
 <script>
     export default {
-        name:'text',
+        name:'Text',
         data(){
             return{
                 name:'小白'

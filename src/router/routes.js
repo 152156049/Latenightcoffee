@@ -106,6 +106,13 @@ export const routes = [{
         component: () =>
             import ("../views/Securitycenter.vue"),
     },
+    
+    {
+        path: "/text",
+        name: "Text",
+        component: () =>
+            import ("../views/Text.vue"),
+    },
 
     // 默认跳转
     {
