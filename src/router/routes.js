@@ -106,7 +106,7 @@ export const routes = [{
         component: () =>
             import ("../views/Securitycenter.vue"),
     },
-    
+    // 测试
     {
         path: "/text",
         name: "Text",
