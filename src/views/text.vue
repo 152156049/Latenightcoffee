@@ -9,7 +9,7 @@
         name:'text',
         data(){
             return{
-                name:'小叶'
+                name:'小白'
             }
         }
     }
